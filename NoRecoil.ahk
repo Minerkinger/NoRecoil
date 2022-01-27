@@ -1,25 +1,24 @@
 ;Settings
-sens:=2.51
-zoomsens:=1
+sens:=1.06
+zoomsens:=0.94
 
 ;Key binds
 key_AK:="F4"
-key_M4A1:="F6"
-key_M4A4:="F7"
-key_Famas:="F8"
-key_Galil:="F9"
-key_UMP:="F12"
+key_M4A1:="F5"
+key_M4A4:="F6"
+key_Famas:="F7"
+key_Galil:="F8"
+key_UMP:="F9"
 key_AUG:="Home"
 key_SG:="End"
 key_RCoff:="F11"
-key_Terminate:="F10"
+key_Terminate:="F12"
 key_shoot:="LButton"
-key_zoom:="LAlt"
+key_zoom:="RButton"
 
 ;do not touch this if you don't know what are you doing
 modifier:=2.52/sens
 Hotkey, *~$Space, Off
-Hotkey, *~$MButton, Off
 Hotkey, *~$t, Off
 
 ;Main program loop, don't break out of it
@@ -1881,23 +1880,6 @@ if Spacestate = U
 break 
 sleep 1
 Send, {Blind}{Space}
-}
-return
-
-;Rapid fire
-~F2::
-Hotkey, *~$MButton, Toggle
-SoundPlay, %A_ScriptDir%\13.mp3
-return
-*~$MButton::
-sleep 10
-loop
-{
-GetKeyState, state, MButton
-if state = U
-break 
-Sleep 1
-Send, {Blind}{LButton}
 }
 return
 
